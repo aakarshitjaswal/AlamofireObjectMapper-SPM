@@ -28,7 +28,9 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
+@_exported import ObjectMapper
+
+
 
 extension DataRequest {
     
