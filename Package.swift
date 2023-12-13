@@ -5,20 +5,24 @@ import PackageDescription
 
 let package = Package(
     name: "SPMDemo",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS(.v16)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "SPMDemo",
             targets: ["SPMDemo"]),
     ],
-    dependencies: [.package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.0.0")),
+    dependencies: [
+        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.0.0")),
                    .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .upToNextMajor(from: "3.5.1"))],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SPMDemo"),
+            name: "SPMDemo",
+            dependencies: [.product(name: "ObjectMapper", package: "ObjectMapper"),
+                           .product(name: "Alamofire", package: "Alamofire")]
+        ),
         .testTarget(
             name: "SPMDemoTests",
             dependencies: ["SPMDemo"]),

@@ -27,8 +27,8 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 @_exported import ObjectMapper
+@_exported import Alamofire
 
 
 
